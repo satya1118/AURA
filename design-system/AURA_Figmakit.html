@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AURA Design System</title>
+<style>
+  body{
+    font-family:-apple-system,Segoe UI,Roboto,Arial;
+    margin:28px;
+    color:#111;
+    background:#ffffff;
+  }
+  .block{
+    padding:18px;
+    border-radius:12px;
+    border:1px solid #e5e5e5;
+    margin-bottom:26px;
+    background:#fafafa;
+  }
+  h1{margin-bottom:12px;font-size:28px}
+  h2{margin-top:0;font-size:20px}
+  pre{
+    white-space:pre-wrap;
+    font-size:13px;
+    background:#fff;
+    padding:16px;
+    border-radius:10px;
+    border:1px solid #eee;
+    overflow-x:auto;
+    line-height:1.45;
+  }
+  .sub{
+    color:#6b6f76;
+    font-size:14px;
+    margin-top:-8px;
+    margin-bottom:20px;
+  }
+</style>
+</head>
+<body>
+
+<h1>AURA Design System</h1>
+<div class="sub">Core UI components, SVG assets, map layers, and diagrams used across AURA.</div>
+
+<!-- DASHBOARD SVG -->
+<div class="block">
+  <h2>Main Dashboard SVG (1440 × 860)</h2>
+  <pre>&lt;svg width="1440" height="860" viewBox="0 0 1440 860" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="1440" height="860" fill="#f6f8fb"/&gt;
+
+  &lt;rect x="40" y="40" width="1360" height="120" rx="16"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+  &lt;text x="70" y="110" font-size="28"
+        font-family="SF Pro Display, system-ui" fill="#111"&gt;AURA Dashboard&lt;/text&gt;
+
+  &lt;rect x="40" y="200" width="420" height="120" rx="12"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+  &lt;rect x="500" y="200" width="420" height="120" rx="12"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+  &lt;rect x="960" y="200" width="420" height="120" rx="12"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+
+  &lt;text x="80" y="250" font-size="16" fill="#6b6f76"&gt;Current Risk Index&lt;/text&gt;
+  &lt;text x="80" y="305" font-size="36" fill="#111"&gt;68%&lt;/text&gt;
+
+  &lt;rect x="40" y="360" width="900" height="440" rx="12"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+
+  &lt;circle cx="360" cy="300" r="120" fill="#7c3aed" fill-opacity="0.28"/&gt;
+  &lt;circle cx="580" cy="220" r="70" fill="#00b3ff" fill-opacity="0.28"/&gt;
+  &lt;circle cx="820" cy="320" r="55" fill="#ff5e3a" fill-opacity="0.26"/&gt;
+
+  &lt;rect x="960" y="360" width="420" height="440" rx="12"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)" /&gt;
+  &lt;text x="1000" y="410" font-size="18" fill="#111"&gt;Live Alerts&lt;/text&gt;
+&lt;/svg&gt;
+  </pre>
+</div>
+
+<!-- CHICAGO MAP SVG -->
+<div class="block">
+  <h2>Chicago Hybrid Map SVG (1180 × 420)</h2>
+  <pre>&lt;svg width="1180" height="420" viewBox="0 0 1180 420" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"&gt;
+      &lt;stop offset="0" stop-color="#f6fbff"/&gt;
+      &lt;stop offset="1" stop-color="#eef6ff"/&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+
+  &lt;rect width="1180" height="420" fill="url(#g1)"/&gt;
+
+  &lt;g stroke="rgba(10,20,30,0.04)" stroke-width="0.6"&gt;
+    &lt;path d="M40 80 H1140"/&gt;
+    &lt;path d="M40 140 H1140"/&gt;
+    &lt;path d="M40 200 H1140"/&gt;
+    &lt;path d="M40 260 H1140"/&gt;
+    &lt;path d="M40 320 H1140"/&gt;
+
+    &lt;path d="M140 40 V380"/&gt;
+    &lt;path d="M260 40 V380"/&gt;
+    &lt;path d="M380 40 V380"/&gt;
+    &lt;path d="M500 40 V380"/&gt;
+    &lt;path d="M620 40 V380"/&gt;
+    &lt;path d="M740 40 V380"/&gt;
+    &lt;path d="M860 40 V380"/&gt;
+    &lt;path d="M980 40 V380"/&gt;
+  &lt;/g&gt;
+
+  &lt;g fill="none" stroke="rgba(10,20,30,0.06)" stroke-width="1.2"&gt;
+    &lt;path d="M48 290 C120 200 220 170 330 180
+             C420 190 520 160 580 170
+             C720 200 840 180 980 200
+             C1060 210 1140 230 1140 230" /&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+  </pre>
+</div>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<div class="block">
+  <h2>Architecture Diagram SVG (900 × 220)</h2>
+  <pre>&lt;svg width="900" height="220" viewBox="0 0 900 220"
+     xmlns="http://www.w3.org/2000/svg"&gt;
+
+  &lt;rect width="900" height="220" rx="10"
+        fill="#ffffff" stroke="rgba(0,0,0,0.03)"/&gt;
+
+  &lt;rect x="18" y="34" width="160" height="74" rx="10"
+        fill="#f7fbff" stroke="rgba(0,0,0,0.02)"/&gt;
+  &lt;text x="36" y="64" fill="#111" font-size="14"&gt;Data Sources&lt;/text&gt;
+
+  &lt;rect x="206" y="34" width="160" height="74" rx="10"
+        fill="#f7fbff" stroke="rgba(0,0,0,0.02)"/&gt;
+  &lt;text x="230" y="64" fill="#111" font-size="14"&gt;Ingestion (Kafka)&lt;/text&gt;
+
+  &lt;rect x="394" y="34" width="160" height="74" rx="10"
+        fill="#f7fbff"/&gt;
+  &lt;text x="405" y="64" fill="#111" font-size="14"&gt;Feature Store (Feast)&lt;/text&gt;
+
+  &lt;rect x="582" y="34" width="160" height="74" rx="10"
+        fill="#f7fbff"/&gt;
+  &lt;text x="600" y="64" fill="#111" font-size="14"&gt;Models&lt;/text&gt;
+
+  &lt;rect x="770" y="34" width="110" height="74" rx="10"
+        fill="#f7fbff"/&gt;
+  &lt;text x="785" y="64" fill="#111" font-size="14"&gt;Serving&lt;/text&gt;
+
+&lt;/svg&gt;
+  </pre>
+</div>
+
+</body>
+</html>
