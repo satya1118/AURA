@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AURA — Executive Case Study</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial;margin:36px;color:#111;background:#fff}
+  .wrap{max-width:860px;margin:0 auto}
+  h1{font-size:28px;margin:0}
+  h3{margin-top:24px;margin-bottom:6px}
+  .muted{color:#5f6570}
+  .box{background:#f7fbff;border-left:4px solid #0071e3;padding:14px;border-radius:8px;margin-top:14px}
+  .kpis{display:flex;gap:12px;margin-top:12px}
+  .kpi{flex:1;background:#fff;padding:12px;border-radius:10px;border:1px solid #ececec}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  td,th{padding:8px;border:1px solid #eee;font-size:14px}
+  .small{font-size:14px;color:#444;line-height:1.55}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>AURA — Autonomous Urban Risk Advisor</h1>
+  <div class="muted">AI Product Case Study • Predictive Safety & Dispatch Intelligence •  
+    Satya Devi Varaprasad Gundumogula</div>
+
+  <div class="box">
+    <strong>Executive Summary</strong><br>
+    AURA is a predictive intelligence system designed to forecast urban safety risks 30–120 minutes in advance.  
+    By combining multimodal signals—911/311 logs, CCTV anomalies, traffic patterns, weather, event density,  
+    and LLM-classified social signals—AURA delivers early-warning alerts, recommended actions, and  
+    explainability for dispatch supervisors.  
+    The MVP projected a **20–25% reduction in response latency**, a **+24% improvement in dispatch efficiency**,  
+    and a potential **$10M annual operational impact** for a large city.
+  </div>
+
+  <h3>Problem & Opportunity</h3>
+  <p class="small">
+    Dispatch centers are traditionally reactive, operating with fragmented and delayed situational awareness.
+    Supervisors must mentally triage high volumes of unstructured inputs, resulting in slower responses  
+    and suboptimal allocation of field units. AURA introduces a predictive layer—providing structured,  
+    prioritized intelligence before incidents scale.
+  </p>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="small">Model Recall (High-Risk Incidents)</div>
+      <div style="font-weight:700;font-size:20px">~82%</div>
+    </div>
+    <div class="kpi">
+      <div class="small">Projected Latency Reduction</div>
+      <div style="font-weight:700;font-size:20px">20–25%</div>
+    </div>
+    <div class="kpi">
+      <div class="small">Dispatch Efficiency</div>
+      <div style="font-weight:700;font-size:20px">+24%</div>
+    </div>
+  </div>
+
+  <h3>Solution Overview (MVP)</h3>
+  <ul class="small">
+    <li>Lightweight MVP using Python ETL + simulated stream inputs + local batch scoring</li>
+    <li>Designed production architecture for scale (Kafka ingestion, Feast feature store, model registry)</li>
+    <li>Risk forecasting using XGBoost + LLM ensemble with SHAP-based explainability</li>
+    <li>Bias mitigation strategy: demographic inputs excluded; fairness audits at district level</li>
+    <li>Dispatcher dashboard with alert prioritization, rationale, and recommended resourcing</li>
+  </ul>
+
+  <h3>Architecture Snapshot</h3>
+  <table>
+    <tr><th>Layer</th><th>Description</th></tr>
+    <tr>
+      <td>Ingestion (MVP)</td>
+      <td>Python scripts, synthetic feeds, and rolling batch windows for rapid experimentation</td>
+    </tr>
+    <tr>
+      <td>Ingestion (Production)</td>
+      <td>Kafka / PubSub pipelines with Airflow-orchestrated transformations</td>
+    </tr>
+    <tr>
+      <td>Feature Store</td>
+      <td>Feast — time-windowed aggregates and real-time feature retrieval</td>
+    </tr>
+    <tr>
+      <td>Models</td>
+      <td>XGBoost (structured) + LLM classifier + CCTV anomaly detection</td>
+    </tr>
+    <tr>
+      <td>Serving</td>
+      <td>FastAPI inference service + alert API + dashboard client</td>
+    </tr>
+  </table>
+
+  <h3>Business Impact</h3>
+  <p class="small">
+    The projected benefits include a **20–25% reduction in response latency**,  
+    **+24% improvement in dispatch efficiency**, and a potential **$10M annual operating impact**
+    through improved routing, reduced secondary incidents, and optimized unit scheduling.
+    The MVP validated the feasibility of predictive dispatch intelligence and demonstrated  
+    measurable advantages even with lightweight, simulation-based inputs.
+  </p>
+
+  <h3>My Contribution</h3>
+  <ul class="small">
+    <li>Owned PRD, feature definitions, KPIs, and success metrics</li>
+    <li>Collaborated with a cross-functional team of 3 data engineers + 1 ML engineer</li>
+    <li>Designed dispatcher workflows, UI/UX, and explainability components</li>
+    <li>Defined pilot strategy and evaluation methodology using historical benchmark logs</li>
+    <li>Created complete design system, prototype, and documentation for stakeholder alignment</li>
+  </ul>
+
+</div>
+</body>
+</html>

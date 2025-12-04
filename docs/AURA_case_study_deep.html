@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AURA — Deep Case Study</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial;margin:36px;color:#111;background:#fff}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:30px;margin:0}
+  h2{margin-top:30px;font-size:22px}
+  h3{margin-top:24px;font-size:18px;margin-bottom:6px}
+  p,li{font-size:15px;line-height:1.55}
+  .muted{color:#5f6570}
+  table{width:100%;border-collapse:collapse;margin-top:12px;margin-bottom:18px}
+  td,th{padding:10px;border:1px solid #eaeaea;font-size:14px}
+  .box{background:#f7fbff;padding:14px;border-left:4px solid #0071e3;border-radius:8px;margin-top:14px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<h1>AURA — Autonomous Urban Risk Advisor</h1>
+<div class="muted">Deep-Dive Case Study • Predictive Urban Safety •  
+Satya Devi Varaprasad Gundumogula</div>
+
+<div class="box">
+  <strong>Overview</strong><br>
+  AURA is an AI-driven predictive safety system that forecasts high-risk incidents  
+  30–120 minutes in advance using multimodal data.  
+  This deep case study explains the product rationale, technical design,  
+  modeling approach, UX patterns, and simulated pilot evaluation.
+</div>
+
+<!-- SECTION 1 -->
+<h2>1. Problem Context</h2>
+<p>
+Urban dispatch centers receive thousands of inputs every hour—911/311 calls, CCTV pings, traffic slowdowns,  
+social signals, and weather anomalies. Supervisors must interpret these in real-time, often reactively.  
+This leads to slower emergency responses, congested routes, and suboptimal allocation of field units.
+</p>
+
+<p>
+The opportunity: Introduce a predictive layer that processes multimodal signals,  
+ranks emerging hotspots, and recommends resource deployment with explainability.
+</p>
+
+<!-- SECTION 2 -->
+<h2>2. Stakeholders & Needs</h2>
+<table>
+<tr><th>Stakeholder</th><th>Needs</th></tr>
+<tr>
+  <td>Dispatch Supervisors</td>
+  <td>Prioritized alerts, incident forecasts, explainability, recommended actions</td>
+</tr>
+<tr>
+  <td>911 Operators</td>
+  <td>Triage consistency, noise reduction, confidence scoring (caller quality)</td>
+</tr>
+<tr>
+  <td>Patrol Commanders</td>
+  <td>Optimal routing, unit balancing, hotspot projections</td>
+</tr>
+<tr>
+  <td>City CIO / Ops</td>
+  <td>Compliance, auditability, measurable ROI</td>
+</tr>
+</table>
+
+<!-- SECTION 3 -->
+<h2>3. Operational Pain Points</h2>
+<ul>
+  <li>Average urban emergency response latency: ~24 minutes</li>
+  <li>Human recall for high-risk events: ~55%</li>
+  <li>Resource misallocation: 18–22% during peak events</li>
+  <li>Data fragmentation across camera, traffic, and call logs</li>
+</ul>
+
+<!-- SECTION 4 -->
+<h2>4. Policy, Privacy & Ethics</h2>
+<ul>
+  <li>Demographic fields excluded from model inputs to prevent systemic bias</li>
+  <li>District-level fairness check for false-positive rates</li>
+  <li>Coordinate fuzzing for non-privileged roles (≤100m)</li>
+  <li>Explainability via SHAP + LLM rationale for social context</li>
+</ul>
+
+<!-- SECTION 5 -->
+<h2>5. Data Sources (Multimodal)</h2
