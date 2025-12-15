@@ -1,282 +1,286 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AURA — Prototype</title>
-<style>
-  :root{
-    --bg:#f4f6f8; --card:#ffffff; --muted:#6b6f76; --ink:#111216;
-    --accent:#00b3ff; --neon:#7c3aed; --radius:14px; --shadow: 0 22px 50px rgba(12,18,30,0.07);
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-    color:var(--ink);
-    background:linear-gradient(180deg,#f4f6f8,#eef2f6)
-  }
-  .wrap{max-width:1180px;margin:36px auto;padding:28px}
-  header{display:flex;gap:16px;align-items:center}
-  .logo{
-    width:64px;height:64px;border-radius:12px;
-    background:linear-gradient(135deg,var(--accent),var(--neon));
-    color:#fff;display:flex;align-items:center;justify-content:center;
-    font-weight:700;font-size:26px;box-shadow:0 12px 36px rgba(124,58,237,0.10)
-  }
-  h1{font-size:26px;margin:0}
-  .lead{color:var(--muted);margin-top:4px}
-  .hero{margin-top:20px;background:var(--card);border-radius:16px;padding:22px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
-  .hero-grid{display:flex;gap:20px}
-  .left{flex:1}
-  .right{width:360px}
-  .kpis{display:flex;gap:12px;margin-top:12px}
-  .kpi{flex:1;background:linear-gradient(180deg,#ffffff,#fbfcff);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
-  .kpi small{display:block;color:var(--muted);font-size:13px}
-  .kpi .val{font-size:28px;font-weight:700;margin-top:6px}
-  .mapcard{margin-top:14px;border-radius:12px;overflow:hidden;height:420px;border:1px solid rgba(0,0,0,0.03);position:relative}
-  .map-svgbg{width:100%;height:100%;display:block}
-  .heat-glow{position:absolute;pointer-events:none;mix-blend-mode:screen;filter:blur(22px)}
-  .spot1{width:280px;height:280px;background:radial-gradient(circle,#7c3aed44 0%, #7c3aed22 40%, transparent 70%);left:220px;top:110px;border-radius:50%}
-  .spot2{width:160px;height:160px;background:radial-gradient(circle,#00b3ff44 0%, #00b3ff22 40%, transparent 70%);left:470px;top:70px;border-radius:50%}
-  .spot3{width:120px;height:120px;background:radial-gradient(circle,#ff5e3a44 0%, #ff5e3a22 40%, transparent 70%);left:740px;top:220px;border-radius:50%}
-  .scan{position:absolute;left:0;right:0;bottom:18px;height:2px;background:linear-gradient(90deg,transparent,rgba(0,179,255,0.28),transparent);opacity:0.75;animation:scan 5.5s linear infinite}
-  @keyframes scan{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
-  .alerts{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.03)}
-  .alert{padding:12px;border-bottom:1px solid rgba(0,0,0,0.03)}
-  .alert:last-child{border-bottom:0}
-  .alert b{display:block}
-  .section{margin-top:28px}
-  .two-col{display:grid;grid-template-columns:1fr 380px;gap:20px}
-  .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.03);box-shadow:0 8px 30px rgba(12,18,30,0.04)}
-  .small{font-size:13px;color:var(--muted)}
-  .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:#eef7ff;border:1px solid rgba(0,179,255,0.12);font-weight:700;color:var(--accent)}
-  .link{color:var(--accent);text-decoration:none;font-weight:700}
-  button{cursor:pointer}
-  @media(max-width:980px){
-    .hero-grid{flex-direction:column}
-    .two-col{grid-template-columns:1fr}
-    .right{width:100%}
-    .mapcard{height:300px}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>AURA — Autonomous Urban Risk Advisor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #0d1b2a;
+      --muted: #6b7b8f;
+      --purple: #7c3aed;
+      --blue: #00b3ff;
+    }
+
+    * { box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #ffffff, var(--bg));
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .kpi h2 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    /* MAP */
+    .mapcard {
+      position: relative;
+      height: 420px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #eef2f7;
+    }
+
+    .map-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .r1 {
+      background: var(--purple);
+      left: 22%;
+      top: 18%;
+    }
+
+    .r2 {
+      background: var(--blue);
+      left: 55%;
+      top: 14%;
+    }
+
+    .r3 {
+      background: var(--blue);
+      left: 58%;
+      top: 45%;
+      opacity: 0.35;
+    }
+
+    .hotspot-ring {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 3px solid var(--purple);
+      box-shadow: 0 0 18px rgba(124,58,237,0.8);
+    }
+
+    .hotspot-label {
+      position: absolute;
+      background: rgba(255,255,255,0.92);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .scan {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(124,58,237,0.08) 50%,
+        transparent 70%
+      );
+      animation: scan 6s linear infinite;
+    }
+
+    @keyframes scan {
+      from { transform: translateX(-100%); }
+      to   { transform: translateX(100%); }
+    }
+
+    .side h3 {
+      margin-top: 0;
+    }
+
+    .alert {
+      padding: 12px;
+      border-radius: 10px;
+      background: #f9fafc;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 12px;
+      margin-top: 10px;
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">A</div>
-      <div>
-        <h1>AURA — Autonomous Urban Risk Advisor (Final)</h1>
-        <div class="lead">Predictive safety • Dispatch intelligence • Real-time multimodal forecasting</div>
+  <div class="container">
+
+    <h1>AURA — Autonomous Urban Risk Advisor</h1>
+    <div class="subtitle">
+      Predictive safety · Dispatch intelligence · Multimodal risk forecasting
+    </div>
+
+    <div class="card kpis">
+      <div class="kpi">
+        <span>Current Risk Index (Evening)</span>
+        <h2>68%</h2>
       </div>
-    </header>
-
-    <div class="hero">
-      <div class="hero-grid">
-        <div class="left">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <h2 style="margin:0">Real-time risk forecasting • Evening Simulation</h2>
-              <p class="small">Multimodal signals: call logs, CCTV anomalies, traffic, weather, event density, LLM-classified text streams.</p>
-            </div>
-            <div style="text-align:right">
-              <div class="pill">Role: AI Product Manager </div>
-              <div class="small" style="margin-top:8px">MVP Duration: 3 weeks</div>
-            </div>
-          </div>
-
-          <div class="kpis">
-            <div class="kpi"><small>Current Risk Index (Evening)</small><div class="val">68%</div></div>
-            <div class="kpi"><small>Predicted Incidents (2 hrs)</small><div class="val">12</div></div>
-            <div class="kpi"><small>Dispatch Efficiency</small><div class="val">+24%</div></div>
-          </div>
-
-          <div class="mapcard">
-            <!-- === Replace the <svg class="map-svgbg"> ... </svg> with the block below === -->
-<!-- MAP IMAGE + NEON HOTSPOTS -->
-<style>
-  /* small helper, safe to paste inline inside prototype */
-  .map-image {
-    width:100%;
-    height:100%;
-    object-fit:cover; /* fills card while keeping aspect */
-    display:block;
-    filter:grayscale(20%) contrast(95%) drop-shadow(0 6px 18px rgba(0,0,0,0.06));
-  }
-  .hotspot {
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-    mix-blend-mode:screen;
-    filter:blur(22px);
-    transform: translate(-50%,-50%);
-    animation: floaty 4500ms ease-in-out infinite;
-  }
-  .hotspot.r1{ width:320px; height:320px; left:25%; top:26%;
-    background: radial-gradient(circle, rgba(124,58,237,0.55) 0%, rgba(124,58,237,0.25) 40%, rgba(124,58,237,0.08) 70%, transparent 100%); }
-  .hotspot.r2{ width:180px; height:180px; left:48%; top:14%;
-    background: radial-gradient(circle, rgba(0,179,255,0.55) 0%, rgba(0,179,255,0.18) 40%, transparent 70%); animation-duration:4200ms; }
-  .hotspot.r3{ width:140px; height:140px; left:74%; top:48%;
-    background: radial-gradient(circle, rgba(255,94,58,0.45) 0%, rgba(255,94,58,0.18) 40%, transparent 70%); animation-duration:4800ms; }
-  @keyframes floaty {
-    0% { transform: translate(-50%,-50%) translateY(0px); opacity:0.95; }
-    50% { transform: translate(-50%,-50%) translateY(-10px); opacity:0.98; }
-    100% { transform: translate(-50%,-50%) translateY(0px); opacity:0.95; }
-  }
-  /* small neon ring for labeled points (thin outline) */
-  .hotspot-ring {
-    position:absolute; width:22px;height:22px;border-radius:50%;
-    border:3px solid rgba(124,58,237,0.9);
-    background:transparent; left:calc(25% + 40px); top:calc(26% - 10px); pointer-events:none;
-    box-shadow: 0 8px 22px rgba(124,58,237,0.25), inset 0 0 14px rgba(124,58,237,0.15);
-    transform: translate(-50%,-50%);
-  }
-  /* label style for point nodes */
-  .hotspot-label{
-    position:absolute; transform:translate(-8px,-100%); font-weight:700; color:#1b2630; font-size:14px;
-    background:rgba(255,255,255,0.92); padding:6px 10px; border-radius:8px; box-shadow:0 6px 18px rgba(12,18,30,0.06);
-    left:25%; top:26%;
-  }
-</style>
-
-<img src="./assets/heatmap.png" alt="Chicago heatmap" class="map-image" />
-
-<!-- neon blobs -->
-<div class="hotspot r1" aria-hidden="true"></div>
-<div class="hotspot r2" aria-hidden="true"></div>
-<div class="hotspot r3" aria-hidden="true"></div>
-
-<!-- small ring UI markers that sit above the blobs (adjust positions as desired) -->
-<div class="hotspot-ring" style="left:36%; top:26%"></div>
-<div class="hotspot-ring" style="left:52%; top:18%; border-color: rgba(0,179,255,0.9); box-shadow:0 8px 22px rgba(0,179,255,0.25)"></div>
-
-<!-- optional label -->
-<div class="hotspot-label" style="left:36%; top:22%">The Loop — CCTV anomaly</div>
-
-
-            <div class="heat-glow spot1"></div>
-            <div class="heat-glow spot2"></div>
-            <div class="heat-glow spot3"></div>
-            <div class="scan"></div>
-          </div>
-        </div>
-
-        <aside class="right">
-          <div class="card alerts">
-            <h3 style="margin:0 0 8px 0">Live Alerts</h3>
-            <div class="alert"><b>19:18 — Wabash Ave</b><span class="small">Theft probability 72% • Recommend 2 units</span></div>
-            <div class="alert"><b>18:45 — Hyde Park</b><span class="small">Crowd density spike • Add patrol presence</span></div>
-            <div class="alert"><b>18:30 — The Loop</b><span class="small">CCTV anomaly detected • Investigate</span></div>
-
-            <div style="height:8px"></div>
-
-            <div style="display:flex;gap:10px;align-items:center">
-              <a class="link" href="AURA_Design_System.html" target="_blank">Design System</a>
-              <span style="flex:1"></span>
-              <a class="link" href="AURA_case_study_exec.html" target="_blank">Exec Case Study</a>
-            </div>
-          </div>
-
-          <div style="height:12px"></div>
-
-          <div class="card">
-            <h4 style="margin:0 0 8px 0">Explainability</h4>
-            <p class="small">Top risk drivers provided via SHAP; LLM rationale supplements social-text signals; CV anomalies power camera triggers.</p>
-          </div>
-        </aside>
-
+      <div class="kpi">
+        <span>Predicted Incidents (2 hrs)</span>
+        <h2>12</h2>
+      </div>
+      <div class="kpi">
+        <span>Dispatch Efficiency</span>
+        <h2>+24%</h2>
       </div>
     </div>
 
-    <div class="section two-col">
-      <div>
-        <div class="card">
-          <h3 style="margin-top:0">Forecast & Recommendations</h3>
-          <p class="small">Example: Hyde Park — expected crowd density spike → allocate +2 units → projected response improvement: 18%.</p>
+    <div class="layout">
 
-          <div style="display:flex;gap:12px;margin-top:12px">
-            <div style="flex:1" class="card small"><strong>Model accuracy (MVP)</strong><div>~82%</div></div>
-            <div style="width:260px" class="card small"><strong>Estimated impact</strong><div>$10M annual savings</div></div>
-          </div>
+      <!-- MAP -->
+      <div class="card mapcard">
+        <img
+          src="/AURA/assets/heatmap.png"
+          alt="Chicago Predictive Heatmap"
+          class="map-image"
+        />
 
-          <div style="margin-top:12px" class="card">
-            <h4 style="margin:0 0 8px 0">System Architecture</h4>
-            <div class="small">
-              MVP: Python ETL + simulated feeds.<br>
-              Production design: Kafka → Feast → MLflow → XGBoost + LLM → FastAPI → Dashboard.
-            </div>
-            <div style="margin-top:10px" class="small">
-              Collaboration: worked with 3 data engineers + 1 ML engineer.
-            </div>
-          </div>
+        <div class="hotspot r1"></div>
+        <div class="hotspot r2"></div>
+        <div class="hotspot r3"></div>
 
+        <div class="hotspot-ring" style="left:35%; top:26%"></div>
+        <div class="hotspot-ring"
+             style="left:54%; top:18%;
+                    border-color: var(--blue);
+                    box-shadow:0 0 18px rgba(0,179,255,0.8)">
         </div>
 
+        <div class="hotspot-label" style="left:35%; top:21%">
+          The Loop — CCTV anomaly
+        </div>
+
+        <div class="hotspot-label" style="left:54%; top:13%">
+          River North — Event exit surge
+        </div>
+
+        <div class="scan"></div>
       </div>
 
-      <aside>
-        <div class="card">
-          <h4 style="margin:0 0 8px 0">Sprint Roadmap (3-Week MVP)</h4>
-          <ol class="small" style="margin:0;padding-left:18px">
-            <li>Sprint 1: Ingestion simulation + lightweight feature store</li>
-            <li>Sprint 2: Ensemble model + evaluation</li>
-            <li>Sprint 3: Dashboard + workflow setup</li>
-          </ol>
+      <!-- SIDE -->
+      <div class="card side">
+        <h3>Live Alerts</h3>
+
+        <div class="alert">
+          <strong>19:18 — Wabash Ave</strong><br/>
+          Theft probability 72% · Recommend 2 units
         </div>
 
-        <div style="height:12px"></div>
-
-        <div class="card">
-         <h4 style="margin:0 0 8px 0">Your Contribution</h4>
-         <ul class="small" style="margin:0;padding-left:18px">
-           <li>PRD, KPIs, acceptance criteria</li>
-           <li>Defined data & model requirements</li>
-           <li>Designed UX flows & UI</li>
-           <li>Coordinated pilot simulation & evaluation</li>
-         </ul>
+        <div class="alert">
+          <strong>18:45 — Hyde Park</strong><br/>
+          Crowd density spike · Add patrol presence
         </div>
 
-        <div style="height:12px"></div>
-
-        <div class="card small">
-          <strong>View Project Code</strong>
-          <div style="height:8px"></div>
-          <a href="https://github.com/satya1118/AURA" target="_blank"
-             style="padding:10px 12px;display:inline-block;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg,#fff,#fbfbff);text-decoration:none;color:#00b3ff;font-weight:600">
-            View GitHub Repo →
-          </a>
+        <div class="alert">
+          <strong>18:30 — The Loop</strong><br/>
+          CCTV anomaly detected · Investigate
         </div>
 
-      </aside>
+        <h3>Explainability</h3>
+        <p style="font-size:14px; color:var(--muted)">
+          SHAP identifies top drivers; LLM explains anomalies;
+          CV signals trigger camera-based risk spikes.
+        </p>
+
+        <div class="links">
+          <a href="/AURA/design-system/AURA_Figmakit.html" target="_blank">Design System</a>
+          <a href="/AURA/docs/AURA_case_study_exec.html" target="_blank">Exec Case Study</a>
+          <a href="/AURA/docs/AURA_case_study_deep.html" target="_blank">Deep Dive</a>
+          <a href="https://github.com/satya1118/AURA" target="_blank">GitHub Repo</a>
+        </div>
+      </div>
+
     </div>
 
-    <footer style="margin-top:22px">
-      <div class="card small" style="display:flex;align-items:center;justify-content:space-between">
-        <div>
-          <a class="link" href="AURA_case_study_exec.html" target="_blank">Exec Case Study</a> • 
-          <a class="link" href="AURA_case_study_deep.html" target="_blank">Deep Dive</a>
-        </div>
-        <div>Satya Devi Varaprasad Gundumogula • AI Product Manager</div>
-      </div>
+    <footer>
+      <div>Prototype · Simulated data · Historical 911 logs</div>
+      <div>Satya Devi Varaprasad Gundumogula · AI Product Manager</div>
     </footer>
 
   </div>
-
-<script>
-  const spots = document.querySelectorAll('.heat-glow');
-  spots.forEach((s,i)=>{ 
-    s.animate([
-      {transform:'translateY(0px)'}, 
-      {transform:'translateY(-10px)'}, 
-      {transform:'translateY(0px)'}
-    ],{
-      duration:4200 + i*400,
-      iterations:Infinity,
-      easing:'ease-in-out'
-    });
-  });
-</script>
 </body>
 </html>
-
-
