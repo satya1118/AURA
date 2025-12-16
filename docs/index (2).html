@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AURA — Autonomous Urban Risk Advisor</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background: #f5f7fb;
+      color: #0b1b2a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4f9cff, #7b61ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .title p {
+      margin: 4px 0 0;
+      color: #6b7a90;
+      font-size: 14px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .metric {
+      background: #f9fbff;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .metric span {
+      font-size: 13px;
+      color: #6b7a90;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 32px;
+      margin-top: 8px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .map-wrapper img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .side-card h3 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .alert {
+      padding: 12px 0;
+      border-bottom: 1px solid #eef1f6;
+    }
+
+    .alert:last-child {
+      border-bottom: none;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .links a {
+      color: #4f9cff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #7d8ca5;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo">A</div>
+      <div class="title">
+        <h1>AURA — Autonomous Urban Risk Advisor</h1>
+        <p>Predictive Urban Safety • Dispatch Intelligence</p>
+      </div>
+    </div>
+
+    <!-- METRICS -->
+    <div class="card">
+      <div class="metrics">
+        <div class="metric">
+          <span>Current Risk Index (Evening)</span>
+          <strong>68%</strong>
+        </div>
+        <div class="metric">
+          <span>Predicted Incidents (2 hrs)</span>
+          <strong>12</strong>
+        </div>
+        <div class="metric">
+          <span>Dispatch Efficiency</span>
+          <strong>+24%</strong>
+        </div>
+      </div>
+
+      <!-- MAIN GRID -->
+      <div class="main-grid">
+
+        <!-- MAP -->
+        <div class="map-wrapper">
+          <!-- IMPORTANT: THIS IS THE FIX -->
+          <img src="assets/dashboard.png" alt="AURA Chicago Risk Dashboard">
+        </div>
+
+        <!-- SIDE PANEL -->
+        <div class="side-card">
+          <h3>Live Alerts</h3>
+
+          <div class="alert">
+            <strong>19:18 — Wabash Ave</strong><br/>
+            Theft probability 72% • Recommend 2 units
+          </div>
+
+          <div class="alert">
+            <strong>18:45 — Hyde Park</strong><br/>
+            Crowd density spike • Add patrol presence
+          </div>
+
+          <div class="alert">
+            <strong>18:30 — The Loop</strong><br/>
+            CCTV anomaly detected • Investigate
+          </div>
+
+          <div class="links">
+            <a href="design-system/AURA_Figmakit.html">Design System</a>
+            <a href="docs/AURA_case_study_exec.html">Exec Case Study</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      Built by Satya Devi Varaprasad Gundumogula • AI Product Management Portfolio
+    </footer>
+
+  </div>
+
+</body>
+</html>
