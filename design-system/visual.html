@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AURA Design System — Visual</title>
+  <title>AURA Design System — UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -10,14 +10,47 @@
       background: #f6f8fb;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    iframe {
+
+    .frame {
+      max-width: 1440px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    img {
       width: 100%;
-      height: 100vh;
-      border: none;
+      border-radius: 16px;
+      display: block;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 24px;
     }
   </style>
 </head>
 <body>
-  <iframe src="AURA_Figmakit.html"></iframe>
+
+  <div class="frame">
+    <h1>AURA Design System — UI</h1>
+    <p>Rendered visual dashboard & map components used across AURA.</p>
+
+    <!-- DASHBOARD UI -->
+    <img src="../assets/dashboard.png" alt="AURA Dashboard UI">
+
+    <br><br>
+
+    <!-- HEATMAP UI -->
+    <img src="../assets/heatmap.png" alt="AURA Heatmap UI">
+  </div>
+
 </body>
 </html>
