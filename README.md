@@ -1,6 +1,6 @@
 <!-- HERO HEADER -->
 <p align="center">
-  <img src="assets/github_banner.png" width=440"">
+  <img src="assets/github_banner.png" width=640"">
 </p>
 
 <p align="center">
