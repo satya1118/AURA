@@ -1,6 +1,6 @@
 <!-- HERO HEADER -->
 <p align="center">
-  <img src="assets/logo.png" width="140">
+  <img src="assets/assets/github_banner.png" width="140">
 </p>
 
 <h1 align="center">AURA — Autonomous Urban Risk Advisor</h1>
