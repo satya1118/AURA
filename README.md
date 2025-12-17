@@ -1,15 +1,11 @@
 <!-- HERO HEADER -->
 <p align="center">
-  <img src="assets/github_banner.png" width="140">
+  <img src="assets/github_banner.png" width=240"">
 </p>
-
-<h1 align="center">AURA — Autonomous Urban Risk Advisor</h1>
 
 <p align="center">
   <strong>AI-powered early-warning system for emergency dispatch optimization</strong>
 </p>
-
-<p align="center">Built by <strong>Satya Devi Varaprasad Gundumogula</strong></p>
 
 ---
 
